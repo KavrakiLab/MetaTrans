@@ -29,17 +29,19 @@ pip install -e .
 Download trained models from this [link](https://rice.box.com/s/5jeb5pp0a3jjr3jvkakfmck4gi71opo0) and place thm inside the folder models.
 
 ### Prepare data
-Prepare a txt file with the molecules in SMILES notation (A sample is given: input.txt). Then prepare (tokenise) the data for translation:
+Prepare a txt file with the molecules in SMILES notation (A sample is given in datasets/test/input.txt). Then prepare (tokenise) the data for translation:
 
 ```bash
-python process_input.py ${infile}
+python prepare_input_file.py ${infile}
 ```
 `infile` (optional) the name of the input txt file. Default: input.txt
 ### Translate
 
 ```bash
-./metatrans 
+./translate_molecules
 ```
+The default beam size is 5. The user can change the beam size (change the variable BEAM in the translate_molecules file) in order to get fewer or more predictions per molecule. A beam size of 5 approximatily gives top-10 predictions. A beam size of 2 gives top-5. A beam size of 10 gives top-20. 
+
 ### Get predictions
 
 ```bash
