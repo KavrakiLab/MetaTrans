@@ -1,12 +1,12 @@
 #!/bin/bash
 
-SRC_FILE=datasets/test/source_test.txt
-STORE=predictions/
-BEAM=5
+BEAM=5  # beam size
 
-MIN=5
-MAX=120
-ALPHA=0.01
+MIN=5   # minimum length of predicted sequence (in SMILES)
+MAX=120  # maximum length of predicted sequences (in SMILES)
+
+SRC_FILE=datasets/test/source_test.txt # tokenised input
+STORE=predictions/test/extended/predictions/  # directory for output files 
 
 MODELS_DIR=/home/eleni/Documents/MetaTrans/models/
 

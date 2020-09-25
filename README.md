@@ -1,13 +1,14 @@
 # Metabolite Translator (MetaTrans)
 
-Metabolite Translator [MetaTrans] is a deep learning, Transformer-based, architecture for predicting metabolites of small molecules in humans. 
+Metabolite Translator (MetaTrans) is a deep learning, Transformer-based, architecture for predicting metabolites of small molecules in humans. 
 
-MetaTrans is developed using transfer learning: First, we trained a Transformer model for predcting the outcome of general chemical reactions. Subsequently, we fine-tuned it on human metabolic reactions. Finally we constructed an ensemble model, 
+MetaTrans is developed using transfer learning: First, we trained a Transformer model for predcting the outcome of general chemical reactions. Subsequently, we fine-tuned it on human metabolic reactions. Finally, we constructed an ensemble model, combining multiple fine-tuned models. 
+The methodology is described in detain in the paper [Prediction of drug metabolites using neural machine translation](https://pubs.rsc.org/en/content/articlelanding/2020/SC/D0SC02639E#!divAbstract)
 
-The specifications for pre-training the Transformer model were based on the [Molecular Transformer for reaction outcome prediction] (https://github.com/pschwllr/MolecularTransformer)
+The specifications for pre-training the Transformer model were based on the [Molecular Transformer for reaction outcome prediction](https://github.com/pschwllr/MolecularTransformer)
 
 
-The implementation of the Transformer model is based on the [OpenNMT toolkit] (http://opennmt.net/OpenNMT-py/). 
+The implementation of the Transformer model is based on the [OpenNMT toolkit](http://opennmt.net/OpenNMT-py/). 
 
 ## Installation
 
@@ -41,11 +42,13 @@ python prepare_input_file.py -input_file ${infile} -output_file ${outfile} -col 
 `col` (optional) if the input file is in csv format, the user can specify the colum that contains the molecules SMILES. Default: 1 (2nd column)
 
 ### Translate
+Step 3: Edit the bash file translate_molecules: define the source file (output of the previous step) and the beam size. The default beam size is 5 and the user can change it to get fewer or more predictions per molecule. A beam size of 5 approximatily gives top-10 predictions. A beam size of 2 gives top-5. A beam size of 10 gives top-20. The user can also define the min and max length of the predicted SMILES sequences.
+Then, translate the input molecules into metabolites:
 
 ```bash
 ./translate_molecules
 ```
-The default beam size is 5. The user can change the beam size (change the variable BEAM in the translate_molecules file) in order to get fewer or more predictions per molecule. A beam size of 5 approximatily gives top-10 predictions. A beam size of 2 gives top-5. A beam size of 10 gives top-20. 
+ 
 
 ### Get predictions
 
@@ -59,3 +62,19 @@ This will generate a csv file with the predicted metabolites.
 ## Datasets
 
 The datasets of human metabolic transformations we constructed for training, validating and testing MetaTrans are in the folder datasets. 
+
+
+## Citation
+
+@Article{metatrans,
+author ="Litsa, Eleni E. and Das, Payel and Kavraki, Lydia E.",
+title  ="Prediction of drug metabolites using neural machine translation",
+journal  ="Chem. Sci.",
+year  ="2020",
+pages  ="-",
+publisher  ="The Royal Society of Chemistry",
+doi  ="10.1039/D0SC02639E",
+url  ="http://dx.doi.org/10.1039/D0SC02639E"
+}
+
+
