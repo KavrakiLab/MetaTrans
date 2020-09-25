@@ -5,7 +5,7 @@ Metabolite Translator (MetaTrans) is a deep learning, Transformer-based, archite
 MetaTrans is developed using transfer learning: First, we trained a Transformer model for predcting the outcome of general chemical reactions. Subsequently, we fine-tuned it on human metabolic reactions. Finally, we constructed an ensemble model, combining multiple fine-tuned models. 
 The methodology is described in detain in the paper [Prediction of drug metabolites using neural machine translation](https://pubs.rsc.org/en/content/articlelanding/2020/SC/D0SC02639E#!divAbstract)
 
-The specifications for pre-training the Transformer model were based on the [Molecular Transformer for reaction outcome prediction](https://github.com/pschwllr/MolecularTransformer)
+The specifications for pre-training the Transformer model were based on the [Molecular Transformer](https://github.com/pschwllr/MolecularTransformer) for reaction outcome prediction.
 
 
 The implementation of the Transformer model is based on the [OpenNMT toolkit](http://opennmt.net/OpenNMT-py/). 
