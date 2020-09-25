@@ -5,15 +5,14 @@ BEAM=5  # beam size
 MIN=5   # minimum length of predicted sequence (in SMILES)
 MAX=120  # maximum length of predicted sequences (in SMILES)
 
-SRC_FILE=datasets/test/source_test.txt # tokenised input
-STORE=predictions/test/extended/predictions/  # directory for output files 
+SRC_FILE=datasets/test/test_molecules_source.txt # tokenised input
+STORE=predictions/  # directory for output files 
 
-MODELS_DIR=/home/eleni/Documents/MetaTrans/models/
-
+mkdir predictions
 
 for model_id in {1,2,3,4,5,6}
 do
-	MODEL_FILE=MODELS_DIR'/model_'$model_id'.pt'
+	MODEL_FILE='models/model_'$model_id'.pt'
 	OUT_NAME='model_'$model_id'_beam'$beam'.txt'
 	OUT_FILE=$STORE$OUT_NAME
 	python translate.py -model $MODEL_FILE -src $SRC_FILE -output $OUT_FILE -n_best $BEAM -beam_size $BEAM -verbose -min_length $MIN -max_length $MAX 

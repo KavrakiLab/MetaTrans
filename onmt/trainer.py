@@ -10,14 +10,10 @@
 """
 
 from __future__ import division
-from comet_ml import Experiment
 import onmt.inputters as inputters
 import onmt.utils
 
 from onmt.utils.logging import logger
-
-experiment = Experiment(api_key="wWI3Ak8ZVhAyR6vaTT1967K0P",
-                        project_name="finetune-common-valid", workspace="elenilitsa")
 
 
 def build_trainer(opt, device_id, model, fields,
