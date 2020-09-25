@@ -66,6 +66,7 @@ The datasets of human metabolic transformations we constructed for training, val
 
 ## Citation
 
+```
 @Article{metatrans,
 author ="Litsa, Eleni E. and Das, Payel and Kavraki, Lydia E.",
 title  ="Prediction of drug metabolites using neural machine translation",
@@ -76,5 +77,5 @@ publisher  ="The Royal Society of Chemistry",
 doi  ="10.1039/D0SC02639E",
 url  ="http://dx.doi.org/10.1039/D0SC02639E"
 }
-
+```
 
