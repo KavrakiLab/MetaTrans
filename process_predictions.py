@@ -19,15 +19,15 @@ import os
 def main(opt):
 	input_file = opt.input_file
 	output_file = opt.output_file
-	predictions_directory = opt.predictions_directory
-	figures_directory = predictions_directory + 'Figures/'
+	predictions_directory = opt.predictions_dir
+	figures_directory = 'Figures/'
 	models = [1,2,3,4,5,6]
 	beam = opt.beam_size
 
 	pred_lines = {}
 
 	for num in range(0,len(models)):
-		predictions_file = predictions_directory+'model_'+models[num]+'_'+'beam'+str(beam)+'.txt'
+		predictions_file = predictions_directory+'model'+str(models[num])+'_'+'beam'+str(beam)+'.txt'
 		with open(predictions_file) as f_pred:  
 			pred_lines[num] = [''.join(line.strip().split(' ')) for line in f_pred.readlines()]
 
@@ -89,7 +89,7 @@ if __name__ == "__main__":
 	parser.add_argument('-input_file', type=str,help='Input File')
 	parser.add_argument('-output_file', type=str, default='predicted_metabolites.csv',help='Processed Predictions File')
 	parser.add_argument('-predictions_dir', type=str, default='predictions/',help='Predictions Directory')
-	parser.add_argument('-beam_size', type=int, default=15,help='Beam Size')
+	parser.add_argument('-beam_size', type=int, default=5,help='Beam Size')
 	parser.add_argument('-visualise_molecules', type=bool, default=False,help='Visualise predicted metabolites')
 	opt = parser.parse_args()
 	main(opt)

@@ -13,7 +13,7 @@ mkdir predictions
 for model_id in {1,2,3,4,5,6}
 do
 	MODEL_FILE='models/model_'$model_id'.pt'
-	OUT_NAME='model_'$model_id'_beam'$beam'.txt'
+	OUT_NAME='model'$model_id'_beam'$BEAM'.txt'
 	OUT_FILE=$STORE$OUT_NAME
 	python translate.py -model $MODEL_FILE -src $SRC_FILE -output $OUT_FILE -n_best $BEAM -beam_size $BEAM -verbose -min_length $MIN -max_length $MAX 
 done
