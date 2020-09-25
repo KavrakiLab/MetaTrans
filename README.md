@@ -26,15 +26,20 @@ pip install -e .
 ## Prediction of human metabolites for small molecules
 
 ### Get Trained models
-Download trained models from this [link](https://rice.box.com/s/5jeb5pp0a3jjr3jvkakfmck4gi71opo0) and place thm inside the folder models.
+Step 1: Download trained models from this [link](https://rice.box.com/s/5jeb5pp0a3jjr3jvkakfmck4gi71opo0) and place thm inside the folder models.
 
 ### Prepare data
-Prepare a txt file with the molecules in SMILES notation (A sample is given in datasets/test/input.txt). Then prepare (tokenise) the data for translation:
+Step 2: Prepare a file (csv or txt) with the molecules in SMILES notation (Sample input files are given in datasets/test/input.csv and input.txt). 
+Recommended use: store the files in a csv file where the 1st colum indicating the molecule ID/name and the second colum containing the SMILES representation.
+Then prepare the data (canonicalise and tokenise SMILES) for translation:
 
 ```bash
-python prepare_input_file.py ${infile}
+python prepare_input_file.py -input_file ${infile} -output_file ${outfile} -col ${col}
 ```
-`infile` (optional) the name of the input txt file. Default: input.txt
+`infile` the name of the input, csv or txt, file.
+`outfile` (optional) the name of the output txt file which will contain the processed data. Default: processed_data.txt
+`col` (optional) if the input file is in csv format, the user can specify the colum that contains the molecules SMILES. Default: 1 (2nd column)
+
 ### Translate
 
 ```bash
