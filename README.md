@@ -21,7 +21,7 @@ conda create -n metatrans python=3.5
 source activate metatrans
 conda install rdkit -c rdkit
 conda install future six tqdm pandas
-conda install pytorch=0.4.1 torchvision -c pytorch
+conda install pytorch=1.1.0 torchvision -c pytorch
 pip install torchtext==0.3.1
 pip install -e .
 ```
